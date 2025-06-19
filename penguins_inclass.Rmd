@@ -39,7 +39,15 @@ summarize(
 Summarize the dataset in a meaningful way (use AT LEAST two of the key functions from slide #12)
 
 ```{r}
+penguins
 
+penguins %>%
+  filter(!is.na(sex)) %>%
+  group_by(species, sex) %>%
+  summarize(
+    avg_mass = mean(body_mass_g, na.rm = TRUE),
+    avg_flipper = mean(flipper_length_mm, na.rm = TRUE)
+  )
 ```
 
 # Final task
